@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="currencySymbol" format="string" />
+    <attr name="notDecimals" format="boolean" />
+    <attr name="showZeros" format="boolean" />
+    <attr name="addSpaceAfterSymbol" format="boolean" />
+
+    <declare-styleable name="CurrencyEditText">
+        <attr name="currencySymbol" />
+        <attr name="maxLength" format="integer" />
+        <attr name="notDecimals" />
+        <attr name="showZeros" />
+        <attr name="addSpaceAfterSymbol" />
+    </declare-styleable>
+
+    <declare-styleable name="CurrencyTextView">
+        <attr name="currencySymbol" />
+        <attr name="notDecimals" />
+        <attr name="addSpaceAfterSymbol" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:padding="12dp"
+    tools:context=".MainActivity">
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rb_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="6dp" />
+
+        <RadioButton
+            android:id="@+id/rb_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="6dp" />
+
+        <RadioButton
+            android:id="@+id/rb_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="6dp" />
+
+        <RadioButton
+            android:id="@+id/rb_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="6dp" />
+
+        <RadioButton
+            android:id="@+id/rb_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="6dp" />
+
+        <RadioButton
+            android:id="@+id/rb_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="6dp" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/rg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rg"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.jortega.currencycomponents.CurrencyEditText
+                android:id="@+id/cet_1"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:enabled="false"
+                android:hint="Regular"
+                android:paddingHorizontal="12dp"
+                android:textAlignment="textEnd"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.jortega.currencycomponents.CurrencyEditText
+                android:id="@+id/cet_2"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:enabled="false"
+                android:hint="With currency symbol"
+                app:addSpaceAfterSymbol="true"
+                android:paddingHorizontal="12dp"
+                android:textAlignment="textEnd"
+                android:textSize="18sp"
+                app:currencySymbol="$" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.jortega.currencycomponents.CurrencyEditText
+                android:id="@+id/cet_3"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:enabled="false"
+                android:hint="With max length (6)"
+                android:paddingHorizontal="12dp"
+                android:textAlignment="textEnd"
+                app:maxLength="6" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.jortega.currencycomponents.CurrencyEditText
+                android:id="@+id/cet_4"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:enabled="false"
+                android:hint="Clear on unfocus"
+                android:paddingHorizontal="12dp"
+                android:textAlignment="textEnd" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.jortega.currencycomponents.CurrencyEditText
+                android:id="@+id/cet_5"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:enabled="false"
+                app:notDecimals="true"
+                android:hint="Without decimals"
+                android:paddingHorizontal="12dp"
+                android:textAlignment="textEnd" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.jortega.currencycomponents.CurrencyEditText
+                android:id="@+id/cet_6"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:enabled="false"
+                app:showZeros="true"
+                android:hint="Without decimals with zeros"
+                android:paddingHorizontal="12dp"
+                android:textAlignment="textEnd" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_clean_value_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Clean value:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_formatted_value"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_clean_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_formatted_value"
+        app:layout_constraintStart_toStartOf="@+id/tv_formatted_value"
+        app:layout_constraintTop_toTopOf="@+id/tv_clean_value_title" />
+
+    <TextView
+        android:id="@+id/tv_formatted_value_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Format value:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.jortega.currencycomponents.CurrencyTextView
+        android:id="@+id/tv_formatted_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:textSize="16sp"
+        app:currencySymbol="$"
+        app:addSpaceAfterSymbol="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_value"
+        app:layout_constraintStart_toEndOf="@+id/tv_formatted_value_title" />
+
+    <Button
+        android:id="@+id/btn_value"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:text="Go"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_formatted_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_clean_value" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
