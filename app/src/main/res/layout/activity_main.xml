@@ -144,6 +144,7 @@
                 android:layout_height="46dp"
                 android:enabled="false"
                 app:notDecimals="true"
+                app:currencySymbol="$"
                 android:hint="Without decimals"
                 android:paddingHorizontal="12dp"
                 android:textAlignment="textEnd" />

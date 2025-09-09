@@ -31,7 +31,8 @@ class CurrencyEditText @JvmOverloads constructor(
             maxLength = typedArray.getInt(R.styleable.CurrencyEditText_maxLength, 14)
             notDecimals = typedArray.getBoolean(R.styleable.CurrencyEditText_notDecimals, false)
             showZeros = typedArray.getBoolean(R.styleable.CurrencyEditText_showZeros, false)
-            addSpaceAfterSymbol = typedArray.getBoolean(R.styleable.CurrencyEditText_addSpaceAfterSymbol, false)
+            addSpaceAfterSymbol =
+                typedArray.getBoolean(R.styleable.CurrencyEditText_addSpaceAfterSymbol, false)
             typedArray.recycle()
         }
 
@@ -43,13 +44,15 @@ class CurrencyEditText @JvmOverloads constructor(
         inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
         maxLines = 1
         //Muestra 0.00 de inicio
-        setText(formatCurrency(
-            value = 0,
-            currencySymbol = currencySymbol,
-            notDecimals = notDecimals,
-            showZeros = showZeros,
-            addSpaceAfterSymbol = addSpaceAfterSymbol
-        ))
+        setText(
+            formatCurrency(
+                value = 0,
+                currencySymbol = currencySymbol,
+                notDecimals = notDecimals,
+                showZeros = showZeros,
+                addSpaceAfterSymbol = addSpaceAfterSymbol
+            )
+        )
         setCurrency()
     }
 
@@ -71,29 +74,23 @@ class CurrencyEditText @JvmOverloads constructor(
                     rawNumber = rawNumber.take(maxLength)
                 }
 
-                //Si está en blanco muestra 0s
-                val newValue = if (rawNumber.isEmpty()) {
-                    if (notDecimals) "0" else "0.00"
-                } else {
+                //Da formato al texto
+                val formattedValue = formatCurrency(
                     //Manda un long para mostrarlo siempre en formato de divisa
-                    val parsedValue = rawNumber.toLong()
-                    val formattedValue = formatCurrency(
-                        value = parsedValue,
-                        currencySymbol = currencySymbol,
-                        notDecimals = notDecimals,
-                        showZeros = showZeros,
-                        addSpaceAfterSymbol = addSpaceAfterSymbol
-                    )
-                    formattedValue
-                }
+                    value = if (rawNumber.isEmpty()) 0 else rawNumber.toLong(),
+                    currencySymbol = currencySymbol,
+                    notDecimals = notDecimals,
+                    showZeros = showZeros,
+                    addSpaceAfterSymbol = addSpaceAfterSymbol
+                )
 
-                setText(newValue)
+                setText(formattedValue)
 
                 //No permite colocar decimales si está configurado así
                 if (showZeros)
-                    setSelection(newValue.length-lengthOffset)
+                    setSelection(formattedValue.length - lengthOffset)
                 else
-                    setSelection(newValue.length)
+                    setSelection(formattedValue.length)
 
                 //Cierra el bucle
                 isEditing = false
@@ -118,9 +115,11 @@ class CurrencyEditText @JvmOverloads constructor(
 
     //Iniciar cursor al final del texto
     fun focus() {
+        isEnabled = true
+
         this.requestFocus()
         if (showZeros)
-            super.setSelection(this.length()-lengthOffset)
+            super.setSelection(this.length() - lengthOffset)
         else
             super.setSelection(this.length())
 
@@ -130,12 +129,14 @@ class CurrencyEditText @JvmOverloads constructor(
     fun disable(clearOnUnFocus: Boolean = false) {
         isEnabled = false
 
-        if (clearOnUnFocus) this.setText(formatCurrency(
-            value = 0,
-            currencySymbol =  currencySymbol,
-            notDecimals =  notDecimals,
-            showZeros = showZeros,
-            addSpaceAfterSymbol = addSpaceAfterSymbol
-        ))
+        if (clearOnUnFocus) this.setText(
+            formatCurrency(
+                value = 0,
+                currencySymbol = currencySymbol,
+                notDecimals = notDecimals,
+                showZeros = showZeros,
+                addSpaceAfterSymbol = addSpaceAfterSymbol
+            )
+        )
     }
 }
